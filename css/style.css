@@ -108,6 +108,7 @@ footer {
     #container .block a.main {
       display: inline-block;
       vertical-align: baseline;
+      
       zoom: 1;
       *display: inline;
       *vertical-align: auto;
@@ -153,7 +154,8 @@ a, .as-link {
     color: #1d5884;
     
     background-repeat: repeat-x;
-    background-position: left bottom; }
+    background-position: left bottom;
+    background-image: url(../images/line.png); }
   a.big-button, .as-link.big-button {
     min-width: 30%;
     border-radius: 3px;
