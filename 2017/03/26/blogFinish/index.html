@@ -226,6 +226,13 @@
 <p><code>$ hexo g</code></p>
 <p>然后直接双击 Hexo 下的 deploy.sh 脚本吧！等着输入用户名密码就OK</p>
 </li>
+<li><p>请注意这里有个大坑</p>
+<p>_confing.yml 下 timezone 配置不能错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">timezone: zh-CN #能配置成 +08:00 类似的</div></pre></td></tr></table></figure>
+<p>上面那个也有不对的，如果设置cheng +08:00 后 momentjs解析会报异常</p>
+<p>需要将timezone配置成 时区名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">timezone: Asia/Shanghai</div></pre></td></tr></table></figure>
+</li>
 <li><p>如果成功了感觉本套教程不错 , 希望大家推荐给更多的人</p>
 <p>​</p>
 </li>
