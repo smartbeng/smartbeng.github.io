@@ -67,7 +67,7 @@
 <p><code>$ cd ~/. ssh</code>     </p>
 <p>如果提示：No such file or directory 说明你是第一次使用git。   </p>
 </li>
-<li><h5 id="生成新的-SSH-key"><a href="#生成新的-SSH-key" class="headerlink" title="生成新的 SSH key"></a>生成新的 SSH key</h5><p>注意1:  此处的邮箱地址，你可以输入自己的邮箱地址</p>
+<li><h5 id="生成新的-SSH-key"><a href="#生成新的-SSH-key" class="headerlink" title="生成新的 SSH key"></a>生成新的 SSH key</h5><p>注意1:  此处的邮箱地址，你要输入自己的邮箱地址</p>
 <p>注意2:  此处的「-C」的是大写的「C」</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;邮件地址@youremail.com&quot;</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;</div></pre></td></tr></table></figure>
 <p>然后系统会要你输入密码：</p>
@@ -87,12 +87,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
 <p>如果是下面的反馈：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.</div><div class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</div><div class="line">Are you sure you want to continue connecting (yes/no)?</div></pre></td></tr></table></figure>
+<p>​</p>
 <p>不要紧张 , 输入yes就好 , 然后会看到：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi cnfeat! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure>
 </li>
 <li><h5 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h5><p>现在你已经可以通过SSH链接到GitHub了 , 还有一些个人信息需要完善的。</p>
 <p>Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理 , 输入下面的代码进行个人信息的设置 , 把名称和邮箱替换成你自己的 , 名字必须是你的真名 , 而不是GitHub的昵称。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;你的名字&quot;//用户名</div><div class="line">$ git config --global user.email  &quot;邮箱名&quot;//填写自己的邮箱</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;userName&quot;//你的用户名</div><div class="line">$ git config --global user.email  &quot;userName@163.com&quot;//填写自己的邮箱   </div><div class="line">-- 查看用户名密码去掉后面的双引内容</div></pre></td></tr></table></figure>
 </li>
 <li><h5 id="SSH-配置成功"><a href="#SSH-配置成功" class="headerlink" title="SSH 配置成功"></a>SSH 配置成功</h5><p>本机已成功连接到github</p>
 <p>如有问题 , 请重新设置 , 常见错误参考 </p>
@@ -102,10 +103,10 @@
 </li>
 <li><h5 id="使用GitHub-建立博客"><a href="#使用GitHub-建立博客" class="headerlink" title="使用GitHub 建立博客"></a>使用GitHub 建立博客</h5><p>登录后系统，在github首页，点击页面右下角「New Repository」</p>
 <p>填写项目信息：</p>
-<p><strong>project name：</strong>cnfeat.github.io     –注意：cnfeat 为你的用户名</p>
+<p>**project name：userName.github.io     –注意：userName为你的用户名</p>
 <p><strong>description：</strong> Writing 1000 Words a Day Changed My Life    –描述</p>
-<p>注：Github Pages的Repository名字是特定的，比如我Github账号是cnfeat，那么我Github Pages Repository名字就是cnfeat.github.io。</p>
-<p>每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过<a href="http://username.github.io/" target="_blank" rel="external">http://username.github.io</a> 来访问你的个人主页。</p>
+<p>注：Github Pages的Repository名字是特定的，比如我Github账号是cnfeat，那么我Github Pages Repository（GitHub仓库）名字就是cnfeat.github.io。</p>
+<p>每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username.github.io，这是特殊的命名约定。完了你可以通过<a href="http://username.github.io/" target="_blank" rel="external">http://username.github.io</a> 来访问你的个人主页。</p>
 <p>点击「Create Repository」 完成创建。</p>
 </li>
 </ul>
@@ -133,18 +134,18 @@
 </li>
 <li><p>更换博客主题</p>
 <p>注意：以下每更换一次主题 运行 hexo g 之前运行如下命令</p>
-<p><code>$ hexo clean</code></p>
-<p>运行了此命令之后再 hexo g 和 hexo s 进行预览</p>
+<p><code>$ hexo clean --因为主题换了 你需要clean以下老主题生成的缓存</code></p>
+<p>运行了此命令之后再 hexo g（生成） 和 hexo s（启动本地服务） 进行预览</p>
 <ol>
 <li><p>复制主题</p>
 <p>这里推荐一个靠谱主题 , 先搭起来 , 发现好的再另行设置</p>
 <p><code>$ git clone https://github.com/wuchong/jacman.git themes/jacman</code></p>
 </li>
-<li><p>更改复制的主题</p>
+<li><p>配置复制的主题</p>
 <p>修改Hexo目录下的config.yml配置文件中的theme属性，将其设置为jacman</p>
 </li>
 <li><p>启用主题</p>
-<p>从Hexo的根目录进入你复制的主题目录</p>
+<p>从Hexo的根目录进入你复制的主题目录 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd themes/jacman</div><div class="line">$ git pull</div><div class="line">$ hexo g   --生成</div><div class="line">$ hexo s   --启动本地预览</div></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -162,17 +163,22 @@
 </ol>
 <p>另外还有其他几个常用命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo new &quot;postName&quot; #新建文章</div><div class="line">$ hexo new page &quot;pageName&quot; #新建页面</div></pre></td></tr></table></figure>
-<p>postName 是你自己起的名字 , 文章就在这里面写</p>
+<p>postName 是你自己起的文章名字 , 内容就在这里面写</p>
 <p>注意：重点来了</p>
 <ol>
 <li>生成的文章会存在于 Hexo\source_posts 目录下</li>
-<li>文章默认是一个.md的格式 , 意思它用的是 Markdown 语法 , 不知道的百度 , 下载一个 Markdown编辑器</li>
+<li>文章默认是一个.md的格式 , 意思它用的是 Markdown 语法 , 不知道的百度 , 关于语法的问题不知道的完了学 , , 先下载一个 Markdown编辑器</li>
 <li>Markdown 编辑器我喜欢用 Typora , 自行搜索下载</li>
-<li>如果不知道Markdown 的 语法 , 先随便在上面写点东西为了测试</li>
-<li>写完之后 Ctrl + S 保存<ul>
-<li>那怎么在本地预览自己写的博客或者增加后的博客呢</li>
-<li>首先在命令窗口切换回 Hexo 目录下 , 而不是你复制的主题目录下</li>
-<li>然后再 hexo g  接着hexo s , 浏览器查看效果</li>
+<li>如果不知道Markdown 的 语法写作 , 先随便在上面写点东西为了测试</li>
+<li><p>写完之后 Ctrl + S 保存</p>
+<ul>
+<li><p>那怎么在本地预览自己写的博客或者增加后的博客呢</p>
+</li>
+<li><p>首先在命令窗口切换回 Hexo 目录下 , 而不是你复制的主题目录下</p>
+<p><code>$ cd Hexo</code></p>
+</li>
+<li><p>然后再 hexo g（生成网页）  接着hexo s（启动本地服务） , 浏览器查看效果（ localhost:4000 ）</p>
+</li>
 </ul>
 </li>
 </ol>
@@ -185,7 +191,7 @@
 <p>​       在这里教大家一个快捷方式 , 一键将博客部署到 GitHub</p>
 <ol>
 <li><p>进入 Hexo 的根目录 接着操作以下命令</p>
-<p><code>cd Hexo</code></p>
+<p><code>$ cd Hexo</code></p>
 <p>刚才我们复制的 jacman 主题 , 用什么主题就将下面链接中的名字改过来就行了</p>
 <p><code>$ git clone https://github.com/jacman/jacman.github.io.git .deploy/jacman.github.io</code></p>
 <ul>
@@ -193,7 +199,10 @@
 <p>将我们之前创建的GitHub 仓库克隆到本地 , 新建一个目录叫做.deploy用于存放克隆的代码。</p>
 </li>
 <li><p>接着在 Hexo 根目录下创建一个 .txt 文件 , 把下面的命令复制进去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">cp -R public/* .deploy/jiji262.github.io</div><div class="line">cd .deploy/jiji262.github.io</div><div class="line">git add .</div><div class="line">git commit -m “update”</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意 ：你用的什么主题就将主题名字全部改到下面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">cp -R public/* .deploy/jacman.github.io</div><div class="line">cd .deploy/jacman.github.io</div><div class="line">git add .</div><div class="line">git commit -m “update”</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<p>​</p>
 </li>
 <li><p>将这个 .txt 文件的后缀改成 .sh , 它就变成了脚本文件 , 我们就将文件改成 deploy.sh 吧！意思就是部署</p>
 </li>
@@ -204,12 +213,12 @@
 <li><p>见证奇迹的时刻</p>
 <ul>
 <li><p>你的主题改完还没有推送到GitHub , 所以你需要在 git 命令窗口先进入主题目录 Hexo/themes/jacman , 运行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git pull  </div><div class="line">$ hexo g  --生成本地（主题）</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd themes/jacman</div><div class="line">$ git pull  </div><div class="line">$ hexo g  --生成本地（主题）</div></pre></td></tr></table></figure>
 <p>切记这里不要用 hexo d 命令 , 好了 , 往下看</p>
 </li>
 <li><p>现在切回到Hexo的根目录下 , 我的在 D 盘 , 我就输入以下命</p>
 <p><code>$ cd D:/Hexo</code></p>
-<p>如果你想改博客内容 , 随时都可以 , 进入 D:\Hexo\source_posts 目录下打开Markdown编辑器 , 编辑完 Ctrl + S 保存关掉窗口就行了 , 紧接着往下走就OK</p>
+<p>如果你想改博客内容 , 随时都可以 , 进入 D:\Hexo\source_posts 目录下打开 , 右键你所创建的文件用Markdown编辑器打开 , 编辑完 Ctrl + S 保存关掉窗口就行了 , 紧接着往下走就OK</p>
 </li>
 <li><p>接着输入下面的生成命令</p>
 <p><code>$ hexo g</code></p>
@@ -228,16 +237,16 @@
 </li>
 <li><p>请注意这里有个大坑</p>
 <p>_confing.yml 下 timezone 配置不能错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">timezone: zh-CN #能配置成 +08:00 类似的</div></pre></td></tr></table></figure>
+<p><code>timezone: zh-CN #能配置成 +08:00 类似的</code></p>
 <p>上面那个也有不对的，如果设置cheng +08:00 后 momentjs解析会报异常</p>
 <p>需要将timezone配置成 时区名称</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">timezone: Asia/Shanghai</div></pre></td></tr></table></figure>
+<p><code>timezone: Asia/Shanghai</code></p>
 </li>
-<li><p>如果成功了感觉本套教程不错 , 希望大家推荐给更多的人</p>
+<li><p>如果成功了感觉本套教程不错 , 希望大家推荐给更多的人 , 祝愿大家在这条路上越走越远 , 不断突破自己 , 让自己变得更加出众！</p>
 <p>​</p>
 </li>
 </ul>
-<p>最后关于本主题的配置百度一搜就有 , 更多配置很多 , 关于样式的调整 , 如果你是一个追求完美的人 , 那你就要在这上面用点心思了 , 比如说调 CSS 样式什么的 , 哈哈你懂得！</p>
+<p>最后关于本主题的配置百度一搜就有 , 比如我们用的jacman的主题 , 你就搜jacmande 的主题配置, 关于样式的调整 , 如果你是一个追求完美的人 , 那你就要在这上面用点心思了 , 比如说调 CSS 样式什么的 , 哈哈你懂得！</p>
 </li>
 </ol>
 </li>
