@@ -194,7 +194,7 @@
 <p><code>$ cd Hexo</code></p>
 <p>注意 1：现在我们需要clone我们自己的GitHub仓库了</p>
 <p>注意 2：先在Hexo 的<strong>根目录</strong>下创建一个 <strong>.deploy</strong>文件夹 , 然后</p>
-<p>注意 3：切记下面是你自己的仓库名 , 把名字都改过来 , 下面我用的是我的仓库名字</p>
+<p>注意 3：切记下面是<strong>你自己的仓库名</strong> , 把名字都改过来 , 下面我用的是我的仓库名字</p>
 <p><code>$ git clone https://github.com/storm/</code></p>
 <p><code>strom.github.io.git .deploy/storm.github.io</code></p>
 <ul>
@@ -203,7 +203,7 @@
 </li>
 <li><p>接着在 Hexo <strong>根目录</strong>下创建一个 .txt 文件 , 把下面的命令复制进去</p>
 </li>
-<li><p>注意 ：你用的什么主题就将主题名字全部改到下面</p>
+<li><p>注意 ：你的GitHub名字是什么就<strong>把你的名字全部改到下面</strong> , 细心点</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">cp -R public/* .deploy/jacman.github.io</div><div class="line">cd .deploy/jacman.github.io</div><div class="line">git add .</div><div class="line">git commit -m “update”</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
 <p>​</p>
 </li>
