@@ -83,7 +83,7 @@
 <li>把你本地生成的密钥复制到里面（key文本框中）， 点击 add key 就ok了</li>
 </ul>
 </li>
-<li><h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><p>可以输入下面的命令 , 看看设置是否成功，git@github.com的部分不要修改：</p>
+<li><h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><p>可以输入下面的命令 , 看看设置是否成功，git@github.com的部分<strong>不要修改</strong>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
 <p>如果是下面的反馈：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.</div><div class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</div><div class="line">Are you sure you want to continue connecting (yes/no)?</div></pre></td></tr></table></figure>
@@ -127,7 +127,7 @@
 </li>
 <li><p>现在已经搭建起来一个本地博客了 , 输入以下命令验证</p>
 <p><code>$ hexo g</code>        -生成</p>
-<p><code>$ hexo s</code>        -启动服务本地预览 （键盘按下 Ctrl + C 停止本地预览）</p>
+<p><code>$ hexo s</code>        -启动服务本地预览 （预览完要停止键盘按下 Ctrl + C 停止本地预览）</p>
 <p>然后到浏览器输入localhost:4000看看 , 一个初始博客映入眼帘</p>
 </li>
 </ol>
@@ -200,7 +200,7 @@
 <li><p>翻译下这条命令的意思</p>
 <p>将我们之前创建的GitHub 仓库克隆到本地 , 新建一个目录叫做.deploy用于存放克隆的代码。</p>
 </li>
-<li><p>接着在 Hexo <strong><em>根目录</em></strong>下创建一个 .txt 文件 , 把下面的命令复制进去</p>
+<li><p>接着在 Hexo <strong>根目录</strong>下创建一个 .txt 文件 , 把下面的命令复制进去</p>
 </li>
 <li><p>注意 ：你用的什么主题就将主题名字全部改到下面</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">cp -R public/* .deploy/jacman.github.io</div><div class="line">cd .deploy/jacman.github.io</div><div class="line">git add .</div><div class="line">git commit -m “update”</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
@@ -244,7 +244,7 @@
 <p>需要将timezone配置成 时区名称</p>
 <p><code>timezone: Asia/Shanghai</code></p>
 </li>
-<li><p>关于域名的绑定看我解释 , 不需要域名的 , 比如我的用户名是stormzha , 就可以通过 <a href="https://stormzha.github.io" target="_blank" rel="external">https://stormzha.github.io</a> 来访问我的博客了。绑定自己的域名买域名都是后话了 , 等你富裕了可以完全买一个绑定在这里 , 比如我去买一个 www.storm.com , 完了绑定在这里 , 就可以访问这个链接来到我的博客了 , 绑定很简单 , 自行网上搜索。为了不对新手造成误导 , 就把这个省略了 , 因为有人问我是不是一定要绑定域名 , 可见某些教程误导了新上手的同学。</p>
+<li><p>关于域名的绑定看我解释 , <strong>不需要域名</strong>的 , 比如我的用户名是stormzha , 就可以通过 <a href="https://stormzha.github.io" target="_blank" rel="external">https://stormzha.github.io</a> 来访问我的博客了。绑定自己的域名买域名都是后话了 , 等你富裕了可以完全买一个绑定在这里 , 比如我去买一个 www.storm.com , 完了绑定在GitHub , 以后就可以访问这个链接来到我的博客了 , 绑定很简单 , 自行网上搜索。为了不对新手造成误导 , 就把这个省略了 , 因为有人问我是不是一定要绑定域名 , 可见某些教程误导了新上手的同学。</p>
 </li>
 <li><p>如果成功了感觉本套教程不错 , 希望大家推荐给更多的人 , 祝愿大家在这条路上越走越远 , 不断突破自己 , 让自己变得更加出众！</p>
 <p>​</p>
