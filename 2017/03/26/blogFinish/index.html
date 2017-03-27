@@ -200,13 +200,13 @@
 <li><p>翻译下这条命令的意思</p>
 <p>将我们之前创建的GitHub 仓库克隆到本地 , 新建一个目录叫做.deploy用于存放克隆的代码。</p>
 </li>
-<li><p>接着在 Hexo 根目录下创建一个 .txt 文件 , 把下面的命令复制进去</p>
+<li><p>接着在 Hexo <strong><em>根目录</em></strong>下创建一个 .txt 文件 , 把下面的命令复制进去</p>
 </li>
 <li><p>注意 ：你用的什么主题就将主题名字全部改到下面</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">cp -R public/* .deploy/jacman.github.io</div><div class="line">cd .deploy/jacman.github.io</div><div class="line">git add .</div><div class="line">git commit -m “update”</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
 <p>​</p>
 </li>
-<li><p>将这个 .txt 文件的后缀改成 .sh , 它就变成了脚本文件 , 我们就将文件改成 deploy.sh 吧！意思就是部署</p>
+<li><p>将这个 <strong><em>.txt 文件的后缀改成 .sh</em></strong> , 它就变成了脚本文件 , 我们就将文件改成 <strong><em>deploy.sh</em></strong> 吧！意思就是部署</p>
 </li>
 <li><p>从此以后需要部署本地博客到 GitHub , 直接可以双击这个文件 , 他会弹出提示 , 需要输入 GitHub 的用户名跟密码 , 是不是很高大上</p>
 </li>
