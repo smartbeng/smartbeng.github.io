@@ -51,23 +51,18 @@
             最适合新手的 GitHub + Hexo 「大话」博客搭建教程 , 几十分钟完成搭建
           </h1>
           <p>网上关于搭建博客教程的数不胜数 , 那为什么我几天还要重复「造轮子」呢！关于 Google 和百度上的种种教程 , 我简直是无力吐槽 。对于有从业经验的朋友们来说这些教程足矣 , 因为我们有一定解决问题和克服难题的能力 , 解决的大部分问题都源于我们的经验。所以这篇教程仅对于新手做一个正确引导 , 简单粗暴 , 浅显易懂。初心 - 为的是让新入门的兄弟看到一个不会被误导的良心教程。</p>
-<h2 id="开始搭建-请细心做好每步"><a href="#开始搭建-请细心做好每步" class="headerlink" title="开始搭建 , 请细心做好每步"></a>开始搭建 , 请细心做好每步</h2><ul>
-<li><h5 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h5><p>关于软件的安装我真的是一句废话都不愿意说 , 你一路 next 就 ok 了 , 以下不再解释。</p>
+<h4 id="开始搭建-请细心做好每步"><a href="#开始搭建-请细心做好每步" class="headerlink" title="开始搭建 , 请细心做好每步"></a>开始搭建 , 请细心做好每步</h4><h4 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h4><p>关于软件的安装我真的是一句废话都不愿意说 , 你一路 next 就 ok 了 , 以下不再解释。</p>
 <p><a href="https://nodejs.org/dist/v4.4.3/node-v4.4.3-x86.msi" target="_blank" rel="external">windows 32 位安装包下载地址</a></p>
 <p><a href="https://nodejs.org/dist/v4.4.3/node-v4.4.3-x64.msi" target="_blank" rel="external">windows 64 位安装包下载地址</a></p>
 <p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">官网下载地址 各种系统以及版本都可以找到</a></p>
-</li>
-<li><h5 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h5><p><a href="http://git-scm.com/download/" target="_blank" rel="external">Git 下载地址</a></p>
+<h4 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h4><p><a href="http://git-scm.com/download/" target="_blank" rel="external">Git 下载地址</a></p>
 <p>安装 Git 后打开 git bash 界面 , 也就是 git 命令窗口 , 以下的所有命令操作全部在此窗口进行 , 别一会儿 cmd 一会儿 git。</p>
-</li>
-<li><h5 id="注册GitHub"><a href="#注册GitHub" class="headerlink" title="注册GitHub"></a>注册GitHub</h5><p>关于账号的注册简直不宜多说 , 只要你注册过微信 qq </p>
+<h4 id="注册GitHub"><a href="#注册GitHub" class="headerlink" title="注册GitHub"></a>注册GitHub</h4><p>关于账号的注册简直不宜多说 , 只要你注册过微信 qq </p>
 <p>自行登录GitHub官方网站注册账号     <a href="https://github.com" target="_blank" rel="external">地址</a></p>
-</li>
-<li><h5 id="检查-SSH-key-设置"><a href="#检查-SSH-key-设置" class="headerlink" title="检查 SSH key 设置"></a>检查 SSH key 设置</h5><p>首先我们需要检查你本机的ssh key 秘钥</p>
+<h4 id="检查-SSH-key-设置"><a href="#检查-SSH-key-设置" class="headerlink" title="检查 SSH key 设置"></a>检查 SSH key 设置</h4><p>首先我们需要检查你本机的ssh key 秘钥</p>
 <p><code>$ cd ~/. ssh</code>     </p>
 <p>如果提示：No such file or directory 说明你是第一次使用git。   </p>
-</li>
-<li><h5 id="生成新的-SSH-key"><a href="#生成新的-SSH-key" class="headerlink" title="生成新的 SSH key"></a>生成新的 SSH key</h5><p>注意1:  此处的邮箱地址，你要输入自己的邮箱地址</p>
+<h4 id="生成新的-SSH-key"><a href="#生成新的-SSH-key" class="headerlink" title="生成新的 SSH key"></a>生成新的 SSH key</h4><p>注意1:  此处的邮箱地址，你要输入自己的邮箱地址</p>
 <p>注意2:  此处的「-C」的是大写的「C」</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"邮件地址@youremail.com"</span></div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file <span class="keyword">in</span> which to save the key (<span class="regexp">/Users/your</span>_user_directory/.ssh/id_rsa)<span class="symbol">:&lt;</span>回车就好&gt;</div></pre></td></tr></table></figure>
 <p>然后系统会要你输入密码：</p>
@@ -75,43 +70,35 @@
 <p>在回车中会提示你输入一个密码 , 这个密码会在你提交项目时使用 , 如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。</p>
 <p>注意：输入密码的时候没有*字样的 , 你直接输入就可以了。</p>
 <p>最后如果没有异常信息出现 , 就成功设置ssh key了</p>
-</li>
-<li><h5 id="添加-SSH-key-到-GitHub"><a href="#添加-SSH-key-到-GitHub" class="headerlink" title="添加 SSH key 到 GitHub"></a>添加 SSH key 到 GitHub</h5><ul>
+<h4 id="添加-SSH-key-到-GitHub"><a href="#添加-SSH-key-到-GitHub" class="headerlink" title="添加 SSH key 到 GitHub"></a>添加 SSH key 到 GitHub</h4><ul>
 <li>打开本地C:\Documents and Settings\Administrator.ssh\id_rsa.pub文件。此文件里面内容为刚才生成人密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</li>
 <li>登陆github系统。</li>
 <li>点击右上角头像处的下拉列表  Settings—&gt;SSH and GPG keys —&gt; 右上角 New SSH key</li>
 <li>把你本地生成的密钥复制到里面（key文本框中）， 点击 add key 就ok了</li>
 </ul>
-</li>
-<li><h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><p>可以输入下面的命令 , 看看设置是否成功，git@github.com的部分<strong>不要修改</strong>：</p>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>可以输入下面的命令 , 看看设置是否成功，git@github.com的部分<strong>不要修改</strong>：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
 <p>如果是下面的反馈：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">The authenticity of host 'github.com (207.97.227.239)' can't be established.</div><div class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</div><div class="line">Are you sure you want to continue connecting (yes/no)?</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">The authenticity of host <span class="string">'github.com (207.97.227.239)'</span> can<span class="string">'t be established.</span></div><div class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</div><div class="line">Are you sure you want to continue connecting (yes/no)?</div></pre></td></tr></table></figure>
 <p>​</p>
 <p>不要紧张 , 输入yes就好 , 然后会看到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi cnfeat! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure>
-</li>
-<li><h5 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h5><p>现在你已经可以通过SSH链接到GitHub了 , 还有一些个人信息需要完善的。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi cnfeat! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></div></pre></td></tr></table></figure>
+<h4 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h4><p>现在你已经可以通过SSH链接到GitHub了 , 还有一些个人信息需要完善的。</p>
 <p>Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理 , 输入下面的代码进行个人信息的设置 , 把名称和邮箱替换成你自己的 , 名字必须是你的真名 , 而不是GitHub的昵称。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name "userName"//你的用户名</div><div class="line">$ git config --global user.email  "userName@163.com"//填写自己的邮箱   </div><div class="line">-- 查看用户名密码去掉后面的双引内容</div></pre></td></tr></table></figure>
-</li>
-<li><h5 id="SSH-配置成功"><a href="#SSH-配置成功" class="headerlink" title="SSH 配置成功"></a>SSH 配置成功</h5><p>本机已成功连接到github</p>
+<h4 id="SSH-配置成功"><a href="#SSH-配置成功" class="headerlink" title="SSH 配置成功"></a>SSH 配置成功</h4><p>本机已成功连接到github</p>
 <p>如有问题 , 请重新设置 , 常见错误参考 </p>
 <p><a href="http://help.github.com/articles/generating-ssh-keys" target="_blank" rel="external">http://help.github.com/articles/generating-ssh-keys</a></p>
 <p><a href="http://help.github.com/articles/error-permission-denied-publickey" target="_blank" rel="external">http://help.github.com/articles/error-permission-denied-publickey</a></p>
 <p>​</p>
-</li>
-<li><h5 id="使用GitHub-建立博客"><a href="#使用GitHub-建立博客" class="headerlink" title="使用GitHub 建立博客"></a>使用GitHub 建立博客</h5><p>登录后系统，在github首页，点击页面右下角「New Repository」</p>
+<h4 id="使用GitHub-建立博客"><a href="#使用GitHub-建立博客" class="headerlink" title="使用GitHub 建立博客"></a>使用GitHub 建立博客</h4><p>登录后系统，在github首页，点击页面右下角「New Repository」</p>
 <p>填写项目信息：</p>
 <p><strong>Repository name：</strong>userName.github.io     –注意：userName为你的用户名</p>
 <p><strong>Description (optional)：</strong> Writing 1000 Words a Day Changed My Life    –描述</p>
 <p>注：Github Pages的Repository名字是特定（两个要一致）的，比如我Github账号是cnfeat，那么我Github Pages Repository（GitHub仓库）名字就是cnfeat.github.io。</p>
 <p>每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username.github.io，这是特殊的命名约定。完了你可以通过<a href="http://username.github.io/" target="_blank" rel="external">http://username.github.io</a> 来访问你的个人主页。</p>
 <p>点击「Create Repository」 完成创建。</p>
-</li>
-</ul>
-<ul>
-<li><h5 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h5><p>Hexo的作者是<a href="https://github.com/tommy351/hexo" target="_blank" rel="external">tommy351</a>，根据<a href="http://hexo.io/docs/index.html" target="_blank" rel="external">官方介绍</a>，Hexo是一个简单、快速、强大的博客发布工具，支持Markdown格式。</p>
+<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><p>Hexo的作者是<a href="https://github.com/tommy351/hexo" target="_blank" rel="external">tommy351</a>，根据<a href="http://hexo.io/docs/index.html" target="_blank" rel="external">官方介绍</a>，Hexo是一个简单、快速、强大的博客发布工具，支持Markdown格式。</p>
 <p>在「我的电脑」中任意选择一个盘新建「Hexo」文件夹 , 比如我在 D 盘建的 , 打开 git 窗口输入以下命令</p>
 <ol>
 <li>打开 git , 运行Hexo 安装命令</li>
@@ -131,9 +118,7 @@
 <p>然后到浏览器输入localhost:4000看看 , 一个初始博客映入眼帘</p>
 </li>
 </ol>
-</li>
-<li><p>更换博客主题</p>
-<p>注意：以下每更换一次主题 运行 hexo g 之前运行如下命令</p>
+<h4 id="更换博客主题"><a href="#更换博客主题" class="headerlink" title="更换博客主题"></a>更换博客主题</h4><p>注意：以下每更换一次主题 运行 hexo g 之前运行如下命令</p>
 <p><code>$ hexo clean --因为主题换了 你需要clean以下老主题生成的缓存</code></p>
 <p>运行了此命令之后再 hexo g（生成） 和 hexo s（启动本地服务） 进行预览</p>
 <ol>
@@ -146,11 +131,9 @@
 </li>
 <li><p>启用主题</p>
 <p>从Hexo的根目录进入你复制的主题目录 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd themes/jacman</div><div class="line">$ git pull</div><div class="line">$ hexo g   --生成</div><div class="line">$ hexo s   --启动本地预览</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd themes/jacman</div><div class="line">$ git pull</div><div class="line">$ hexo g   --生成</div><div class="line">$ hexo s   --启动本地预览</div></pre></td></tr></table></figure>
 </li>
 </ol>
-</li>
-</ul>
 <p>​                1.操作完之后浏览器输入 localhost:4000 看一下有没有</p>
 <p>​                 2.这里我说一点 , 调主题样式后面再调 , 先把博客搭建起来 , 别瞎搞</p>
 <p>​                 3.切记如果没有 hexo clean 一下 , 再去 hexo g 和 hexo s</p>
@@ -162,10 +145,9 @@
 <li>hexo deploy (hexo d) 部署播客到远端（比如github, heroku等平台）</li>
 </ol>
 <p>另外还有其他几个常用命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo new &quot;postName&quot; #新建文章</div><div class="line">$ hexo new page &quot;pageName&quot; #新建页面</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></div><div class="line">$ hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></div></pre></td></tr></table></figure>
 <p>postName 是你自己起的文章名字 , 内容就在这里面写</p>
-<p>注意：重点来了</p>
-<ol>
+<h4 id="注意：重点来了"><a href="#注意：重点来了" class="headerlink" title="注意：重点来了"></a>注意：重点来了</h4><ol>
 <li>生成的文章会存在于 Hexo\source_posts 目录下</li>
 <li>文章默认是一个.md的格式 , 意思它用的是 Markdown 语法 , 不知道的百度 , 关于语法的问题不知道的完了学 , , 先下载一个 Markdown编辑器</li>
 <li>Markdown 编辑器我喜欢用 Typora , 自行搜索下载</li>
@@ -183,12 +165,10 @@
 </li>
 </ol>
 <p>常用简写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ hexo n == hexo new        --新建文章</div><div class="line">$ hexo g == hexo generate   --生成页面</div><div class="line">$ hexo s == hexo server     --启用本地浏览器预览（localhost:4000）</div><div class="line">$ hexo d == hexo deploy     --部署博客</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ hexo n == hexo new        --新建文章</div><div class="line">$ hexo g == hexo generate   --生成页面</div><div class="line">$ hexo s == hexo server     --启用本地浏览器预览（<span class="symbol">localhost:</span><span class="number">4000</span>）</div><div class="line">$ hexo d == hexo deploy     --部署博客</div></pre></td></tr></table></figure>
 <p>常用组合</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g #生成部署</div><div class="line">$ hexo s -g #生成预览</div></pre></td></tr></table></figure>
-<ul>
-<li><p>重头戏 , 将你复制的主题以及所写文章成功关联到 GitHub 链接 , 就可以通过 username.github.io 访问啦</p>
-<p>​       在这里教大家一个快捷方式 , <strong>一键部署</strong>博客到 GitHub</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g <span class="comment">#生成部署</span></div><div class="line">$ hexo s -g <span class="comment">#生成预览</span></div></pre></td></tr></table></figure>
+<h4 id="重头戏-将你复制的主题以及所写文章成功关联到-GitHub-链接-就可以通过-username-github-io-访问啦"><a href="#重头戏-将你复制的主题以及所写文章成功关联到-GitHub-链接-就可以通过-username-github-io-访问啦" class="headerlink" title="重头戏 , 将你复制的主题以及所写文章成功关联到 GitHub 链接 , 就可以通过 username.github.io 访问啦"></a>重头戏 , 将你复制的主题以及所写文章成功关联到 GitHub 链接 , 就可以通过 username.github.io 访问啦</h4><p>​  在这里教大家一个快捷方式 , <strong>一键部署</strong>博客到 GitHub</p>
 <ol>
 <li><p>进入 Hexo 的根目录 接着操作以下命令</p>
 <p><code>$ cd Hexo</code></p>
@@ -196,33 +176,24 @@
 <p>注意 3：切记下面是<strong>你自己的仓库名</strong> , 把名字都改过来 , 下面我用的是我的仓库名字</p>
 <p><code>$ git clone https://github.com/storm/</code></p>
 <p><code>strom.github.io.git .deploy/storm.github.io</code></p>
-<ul>
-<li><p>翻译下这条命令的意思</p>
+<p>翻译下这条命令的意思</p>
 <p>将我们之前创建的GitHub 仓库克隆到本地 , 命令会新建一个目录叫做.deploy用于存放克隆的代码。</p>
 <p>然后会在.deploy文件夹下生成一个 <strong>你的名字.github.io</strong> 的文件夹用于存放文件</p>
-</li>
-<li><p>接着在 Hexo <strong>根目录</strong>下创建一个 .txt 文件 , 把下面的命令复制进去</p>
-</li>
-<li><p>注意 ：<strong>你的GitHub名字</strong>是什么就<strong>把你的名字全部改到下面</strong> , 细心点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">cp -R public/* .deploy/jacman.github.io</div><div class="line">cd .deploy/jacman.github.io</div><div class="line">git add .</div><div class="line">git commit -m “update”</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<p>2.接着在 Hexo <strong>根目录</strong>下创建一个 .txt 文件 , 把下面的命令复制进去</p>
+<p>3.注意 ：<strong>你的GitHub名字</strong>是什么就<strong>把你的名字全部改到下面</strong> , 细心点</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">cp -R public/* .deploy/jacman.github.io</div><div class="line">cd .deploy/jacman.github.io</div><div class="line">git add .</div><div class="line">git commit -m “update”</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
 <p>​</p>
-</li>
-<li><p>将这个 <strong><em>.txt 文件的后缀改成 .sh</em></strong> , 它就变成了脚本文件 , 我们就将文件改成 <strong><em>deploy.sh</em></strong> 吧！意思就是部署</p>
-</li>
-<li><p>从此以后需要部署本地博客到 GitHub , 直接可以双击这个文件 , 他会弹出提示 , 需要输入 GitHub 的用户名跟密码 , 是不是很高大上</p>
-</li>
-</ul>
-</li>
-<li><p>见证奇迹的时刻</p>
-<ul>
-<li><p>你的主题改完还没有推送到GitHub , 所以你需要在 git 命令窗口先进入主题目录 Hexo/themes/jacman , 运行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd themes/jacman</div><div class="line">$ git pull  </div><div class="line">$ hexo g  --生成本地（主题）</div></pre></td></tr></table></figure>
+<p>4.将这个 <strong><em>.txt 文件的后缀改成 .sh</em></strong> , 它就变成了脚本文件 , 我们就将文件改成 <strong><em>deploy.sh</em></strong> 吧！意思就是部署</p>
+<p>5.从此以后需要部署本地博客到 GitHub , 直接可以双击这个文件 , 他会弹出提示 , 需要输入 GitHub 的用户名跟密码 , 是不是很高大上</p>
+<h4 id="见证奇迹的时刻"><a href="#见证奇迹的时刻" class="headerlink" title="见证奇迹的时刻"></a>见证奇迹的时刻</h4><p>你的主题改完还没有推送到GitHub , 所以你需要在 git 命令窗口先进入主题目录 Hexo/themes/jacman , 运行如下命令</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd themes/jacman</div><div class="line">$ git pull  </div><div class="line">$ hexo g  --生成本地（主题）</div></pre></td></tr></table></figure>
 <p>切记这里不要用 hexo d 命令 , 好了 , 往下看</p>
-</li>
-<li><p>现在切回到Hexo的根目录下 , 我的在 D 盘 , 我就输入以下命</p>
+<ul>
+<li>现在切回到Hexo的根目录下 , 我的在 D 盘 , 我就输入以下命</li>
+</ul>
 <p><code>$ cd D:/Hexo</code></p>
 <p>如果你想改博客内容 , 随时都可以 , 进入 D:\Hexo\source_posts 目录下 , 右键你所创建的文件用Markdown编辑器打开 , 编辑完 Ctrl + S 保存关掉窗口就行了 , 紧接着往下走就OK</p>
-</li>
+<ul>
 <li><p>接着输入下面的生成命令</p>
 <p><code>$ hexo g</code></p>
 </li>
@@ -257,8 +228,6 @@
 <p>最后说两句 , 关于本主题的配置百度一搜就有 , 比如我们用的jacman的主题 , 你就搜jacman 的主题配置, 关于样式的调整 , 如果你是一个追求完美的人 , 那你就要在这上面用点心思了 , 比如说调 CSS 样式什么的 , 哈哈你懂得！如果感觉本教程不错欢迎大伙儿推荐给没搭建的朋友们来踩 , 感谢！</p>
 </li>
 </ol>
-</li>
-</ul>
 
           <br>
 <p>stormzha</p>
