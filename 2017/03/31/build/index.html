@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Android Studio 中配置 Java8 属性 - stormzha</title>
+    <title>Android Studio 中配置 Java 8 属性 - stormzha</title>
     <link href='/images/fav.png' rel='shortcut icon'>
 <link href='/atom.xml' rel='alternate' type='application/rss+xml'>
 <link rel="stylesheet" href="/css/style.css">
@@ -48,7 +48,7 @@
         <section class='post'>
           <h1>
             <div class='date'>2017-03-31</div>
-            Android Studio 中配置 Java8 属性
+            Android Studio 中配置 Java 8 属性
           </h1>
           <p>今天竟然有人问我什么是 Lamdba 表达式？不知道的赶紧下去了解 , 这是 Java 8 中的新特性 , 可以极大程度的简化代码 , 并且可读性很高 , 如今 Java 9 都要问世了 , 希望大家都跟上技术发展步伐 , 今天先在这里给不会的同学总结一下关于 Android Studio 中如何配置使用 Java 8 , 过后再记录一下学习 Lamdba 表达式的心得。</p>
 <h2 id="添加插件retrolambda"><a href="#添加插件retrolambda" class="headerlink" title="添加插件retrolambda"></a>添加插件retrolambda</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">apply plugin: <span class="string">'me.tatarka.retrolambda'</span></div><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        mavenCentral()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">'me.tatarka:gradle-retrolambda:3.2.4'</span> //<span class="keyword">for</span> java <span class="number">8</span> lamda</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    //从 maven central 获取最新版本插件</div><div class="line">    retrolambdaConfig <span class="string">'net.orfjackal.retrolambda:retrolambda:+'</span></div><div class="line">    //本地版本，retrolambda.jar 位于libs目录</div><div class="line">    // retrolambdaConfig files(<span class="string">'libs/retrolambda.jar'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
