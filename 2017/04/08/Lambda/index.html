@@ -81,7 +81,7 @@
 <p>举个例子，上代码！比如现在有一个方法是接受 MyListener 参数的：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SingleDog</span><span class="params">(MyListener listener)</span> </span>&#123;</div><div class="line">   String a = <span class="string">"Hello SingleDog"</span></div><div class="line">   String b = <span class="string">"今年势必脱单"</span>;</div><div class="line">   String result = listener.doSomething(a, b);</div><div class="line">   Log.d(<span class="string">"TAG"</span>, result);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>被问我为什么起名单身狗，因为我就是所以我骄傲！哈哈，傲娇脸  (ˇˍˇ)</p>
-<p>我们在调用 hello() 这个方法的时候可以这样写：</p>
+<p>我们在调用 SingleDog() 这个方法的时候可以这样写：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hello((a, b) -&gt; &#123;</div><div class="line">   String result = a + b;</div><div class="line">   <span class="keyword">return</span> result;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>那么 doSomething() 方法就会将 a 和 b 两个参数进行相加，从而最终打印结果就会是 “Hello SingleDog 今年势必脱单” ，单身狗共勉！</p>
 <p>现在我们已经将 Lambda 表达式的写法基本都掌握了，接下来我们着重看一下在 Android 中有哪些常用的功能是可以用 Lambda 表达式进行替换的。</p>
