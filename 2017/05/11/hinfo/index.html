@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <title>Android 实现 ios 逼真动画开关按钮以及弹框提示大全、状态栏微技巧 - smartbeng</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='/atom.xml' rel='alternate' type='application/rss+xml'>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/basics.js"></script>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'>
+
+
+  </head>
+  <body>
+    <header>
+  <a id='go-back-home' href='/'><img src='/images/scribble.png' alt='Home' width='53' height='59'></a>
+  <p>smartbeng</p>
+  <p>做好今天的自己！</p>
+</header>
+
+    <div id='container'>
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='/about/index.html'>About</a>
+  
+    <a class='main' href='mailto:stormzha@163.com'>Email</a>
+  
+    <a class='main' href='https://github.com/smartbeng'>Github</a>
+  
+</div>
+
+      <section class='paging'>
+  
+  
+    <div class='right'>
+      <a href='/2017/04/28/WebView/'>
+        ›
+      </a>
+    </div>
+  
+</section>
+
+      <div class='content'>
+        <section class='post'>
+          <h1>
+            <div class='date'>2017-05-11</div>
+            Android 实现 ios 逼真动画开关按钮以及弹框提示大全、状态栏微技巧
+          </h1>
+          <blockquote>
+<p>今天无意间在 GitHub 上碰到了一个开源项目，就是 ios 风格的一个开关按钮，提供动画以及颜色自定义效果，分享给大家，希望可以帮到有此类需求的同学！另外今天在这里把我总结到一块儿的 Android 弹框提示微技巧和状态栏有关设置也贴出来。</p>
+</blockquote>
+<p>如果有用就点个赞吧，以示鼓励。</p>
+<p>###这是项目总体效果图</p>
+<p>注意，使用的时候看 GitHub 项目里的 Sample 块中的例子，避免大家搞错。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5276837-d25c48178d0b15f3.gif?imageMogr2/auto-orient/strip" alt="ios 风格开关"></p>
+<p><a href="https://github.com/zcweng/SwitchButton" target="_blank" rel="external"><a href="https://github.com/zcweng/SwitchButton" target="_blank" rel="external">GitHub 项目地址</a></a></p>
+<p>大家可以看到他提供了动画以及多种主题风格，很赞！</p>
+<p>用法很简单，只需要在 build.gradle 文件中添加以下依赖</p>
+<p>这是我的 build.gradle 结构，先在项目根目录下的 build.gradle 添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">       mavenCentral()</div><div class="line">       jcenter()</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>app 下的 build.gradle 中添加以下依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.github.zcweng:switch-button:0.0.3@aar&apos;</div></pre></td></tr></table></figure>
+<p>关于布局文件和代码设置请自行在 GitHun 上查看，我就不罗嗦了，上面描述的很清楚！</p>
+<p>###Android 弹框提示微技巧</p>
+<p>先上效果图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5276837-491f60377ecebafb.gif?imageMogr2/auto-orient/strip" alt="提示集合"></p>
+<p>其实说到微技巧，如图有一个「加强版 Toast」,我也是专门对 Toast 做了以下处理：</p>
+<ul>
+<li>原生 Toast 点击几下则会弹出几次，没有考虑到用户误操作。</li>
+<li>我这里做了处理，在 Toast 弹出未隐藏时点击几下都只做一次触发操作，如图中效果。</li>
+</ul>
+<p>那接下来依次按顺序将图中效果的实现方式贴出来：</p>
+<p>###一 、AlertDialog </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">btn_alertDialog.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(View v) &#123;</div><div class="line">        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);</div><div class="line">        builder.setTitle(&quot;提示&quot;)</div><div class="line">                .setMessage(&quot;确定升级到android7.0吗？&quot;)</div><div class="line">                .setIcon(R.mipmap.budd)</div><div class="line">                .setPositiveButton(&quot;确定&quot;, new DialogInterface.OnClickListener() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">                        Toast.makeText(MainActivity.this, &quot;中途不要有任何阻止操作&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .setNegativeButton(&quot;取消&quot;, new DialogInterface.OnClickListener() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">                    &#125;</div><div class="line">                &#125;).create().show();</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="二-、ProgressDialog"><a href="#二-、ProgressDialog" class="headerlink" title="二 、ProgressDialog"></a>二 、ProgressDialog</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">btn_progress_dialog.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(View v) &#123;</div><div class="line">        switch (v.getId())&#123;</div><div class="line">            case R.id.btn_progress:</div><div class="line">                ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);</div><div class="line">                progressDialog.setTitle(&quot;头像上传&quot;);</div><div class="line">                progressDialog.setMessage(&quot;请稍后...&quot;);</div><div class="line">                progressDialog.setIcon(R.mipmap.msg);</div><div class="line">                progressDialog.setCancelable(true);</div><div class="line">                progressDialog.show();</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>###三 、加强版 Toast</p>
+<p>此处原生的 Toast 就不必贴了,直接将加强版的贴出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class Util &#123;</div><div class="line">    private static Toast toast;</div><div class="line">    public static void showToast(Context context,String content)&#123;</div><div class="line">        if (toast == null)&#123;</div><div class="line">            toast =  Toast.makeText(context,content,Toast.LENGTH_SHORT);</div><div class="line">        &#125;else &#123;</div><div class="line">            toast.setText(content);</div><div class="line">        &#125;</div><div class="line">        toast.show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>大家可以看到我独立了一个类用来处理Toast ，在 Toast 为空的时候，也就是触发提醒没在发生的时候，给他传入提示信息 content 。否则就是不为空，也就是触发提醒正在发生的时候，直接复用同一个 content 信息！</p>
+<p>那么在使用的时候这样写就可以了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Util.showToast(getApplicationContext(),&quot;你点击了！&quot;);</div></pre></td></tr></table></figure>
+<h3 id="四-、Snackbar-底部弹框"><a href="#四-、Snackbar-底部弹框" class="headerlink" title="四 、Snackbar 底部弹框"></a>四 、Snackbar 底部弹框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">btn_snackBar.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(View view) &#123;</div><div class="line">        Snackbar.make(view,&quot;系统程序建议不要删除？&quot;,Snackbar.LENGTH_SHORT)</div><div class="line">                .setAction(&quot;删除&quot;, new View.OnClickListener() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onClick(View v) &#123;</div><div class="line">                        Toast.makeText(MainActivity.this, &quot;已删除&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .show();</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>###五 、ProgressBar 圆圈加载进度条</p>
+<p>这里我做了处理，点击触发显示和隐藏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">btn_progress_one.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(View v) &#123;</div><div class="line">        switch (v.getId())&#123;</div><div class="line">            case R.id.progress_bar_one:</div><div class="line">                if(progressBar1.getVisibility() == View.GONE)&#123;</div><div class="line">                    progressBar1.setVisibility(View.VISIBLE);</div><div class="line">                &#125;else&#123;</div><div class="line">                    progressBar1.setVisibility(View.GONE);</div><div class="line">                &#125;</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>###六 、ProgressBar(水平进度条)点击事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">btn_progress_two.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(View v) &#123;</div><div class="line">        switch (v.getId())&#123;</div><div class="line">            case R.id.progress_bar_two:</div><div class="line">                int progress = progressBar2.getProgress();</div><div class="line">                progress = progress + 10;</div><div class="line">                progressBar2.setProgress(progress);</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>代码同样很简单，只是加了点击一次进度条延长10！</p>
+<h3 id="Android-状态栏设置"><a href="#Android-状态栏设置" class="headerlink" title="Android 状态栏设置"></a>Android 状态栏设置</h3><p>一  、<strong>沉浸式模式</strong></p>
+<p><strong>如下是同时隐藏状态栏和actionBar，实现真正的「沉浸式模式」，适用于 APP 启动的欢迎页或者全屏播放视频等等</strong></p>
+<p>写法，将这段代码复制到你 Activity 的 onCreate() 方法中即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 隐藏状态栏</div><div class="line"> * @param hasFocus</div><div class="line"> */</div><div class="line">@Override</div><div class="line">public void onWindowFocusChanged(boolean hasFocus) &#123;</div><div class="line">    super.onWindowFocusChanged(hasFocus);</div><div class="line">    if (hasFocus &amp;&amp; Build.VERSION.SDK_INT &gt;= 19) &#123;</div><div class="line">        View decorView = getWindow().getDecorView();</div><div class="line">        decorView.setSystemUiVisibility(</div><div class="line">                View.SYSTEM_UI_FLAG_LAYOUT_STABLE</div><div class="line">                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION</div><div class="line">                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</div><div class="line">                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION</div><div class="line">                        | View.SYSTEM_UI_FLAG_FULLSCREEN</div><div class="line">                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关于解释我就不多说了，此处的做法参考自郭霖老师的博客，想进一步了解请参考 <a href="http://blog.csdn.net/guolin_blog/article/details/51763825" target="_blank" rel="external">博客文章地址</a></p>
+<p>二 、实现 ios 微信头部状态栏效果**</p>
+<p>例如你想实现下面这样的状态栏显示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5276837-72d558e520a423af.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IMG_5741.PNG"></p>
+<p>那就需要将状态栏和你的 actionBar 或者 toolBar 重叠在一起，</p>
+<p>以下的用法同是，将方法体放在 onCreate() 中即可！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 隐藏状态栏</div><div class="line"> */</div><div class="line">if (Build.VERSION.SDK_INT &gt;= 21) &#123;</div><div class="line">    View decorView = getWindow().getDecorView();</div><div class="line">    int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</div><div class="line">            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;</div><div class="line">    decorView.setSystemUiVisibility(option);</div><div class="line">    getWindow().setStatusBarColor(Color.TRANSPARENT);</div><div class="line">&#125;</div><div class="line">![IMG_5741.PNG](http://upload-images.jianshu.io/upload_images/5276837-6ccb6ac18453bec2.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div></pre></td></tr></table></figure>
+<p>以上就是这次简单的分享和总结，也没什么干货而言，算给自己的小总结吧，希望对大家有用。</p>
+
+          <br>
+<p>smartbeng</p>
+<p><img src='/images/scribble3.png' alt='scribble'></p>
+
+        </section>
+      </div>
+      
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='/about/index.html'>About</a>
+  
+    <a class='main' href='mailto:stormzha@163.com'>Email</a>
+  
+    <a class='main' href='https://github.com/smartbeng'>Github</a>
+  
+</div>
+
+    </div>
+    <footer>
+  <span class='muted'>&copy; smartbeng. All Rights Reserved.</span><br>
+  <a href='https://github.com/smartbeng/hexo-scribble' class='muted'>主题地址</a>
+  <br>
+  <br>
+  <img src='/images/scribble2.png' alt='scribble' />
+</footer>
+
+  </body>
+</html>
