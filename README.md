@@ -7,6 +7,7 @@ Android 开发者 + 舞台放光者 + 行动主义者 , 心愿是未来希望自
 
 ## 联系我
 
-- GitHub: [smartbeng](https://github.com/smartbeng)
+- JianShu: [smartbeng](http://www.jianshu.com/u/7ca90649bbfd)
 - Weibo: [Silence-e](http://weibo.com/login.php)
+
 
