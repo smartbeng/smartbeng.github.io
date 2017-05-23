@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>为什么我们要用 AIDL , Android 进程间通信 AIDL - smartbeng</title>
+    <title>Android图片加载框架最全解析（一），Glide的基本用法 - smartbeng</title>
     <link href='/images/fav.png' rel='shortcut icon'>
 <link href='/atom.xml' rel='alternate' type='application/rss+xml'>
 <link rel="stylesheet" href="/css/style.css">
@@ -48,7 +48,7 @@
         <section class='post'>
           <h1>
             <div class='date'>2017-05-23</div>
-            为什么我们要用 AIDL , Android 进程间通信 AIDL
+            Android图片加载框架最全解析（一），Glide的基本用法
           </h1>
           <p>本篇文章转载至郭霖的博客，地址：<a href="http://blog.csdn.net/guolin_blog/article/details/53759439" target="_blank" rel="external">http://blog.csdn.net/guolin_blog/article/details/53759439</a></p>
 <blockquote>
@@ -60,7 +60,7 @@
 <p>说实话，关于Glide的文章我已经筹备了好久，去年这个时候本来就打算要写了，但是一直都没有动笔。因为去年我的大部分时间都放在了写<a href="http://blog.csdn.net/guolin_blog/article/details/52032038" target="_blank" rel="external">《第二行代码》</a>上面，只能用碎片时间来写写博客，但是Glide的难度远超出了我用碎片时间所能掌握的难度。当然，这里我说的是对它的源码进行解析的难度，不是使用上的难度，Glide的用法是很简单的。所以，我觉得去年我写不好Glide这个题材的文章，也就一直拖到了今年。</p>
 <p>而现在，我花费了大量的精力去研究Glide的源码和各种用法，相信现在已经可以将它非常好地掌握了，因此我准备将我掌握的这些知识整理成一个新的系列，帮忙大家更好地学习Glide。这个Glide系列大概会有8篇左右文章，预计花半年时间写完，将会包括Glide的基本用法、源码解析、高级用法、功能扩展等内容，可能会是目前互联网上最详尽的Glide教程。</p>
 <p>那么本篇文章是这个系列的第一篇文章，我们先来了解一下Glide的基本用法吧。</p>
-<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>Glide是一款由Bump Technologies开发的图片加载框架，使得我们可以在Android平台上以极度简单的方式加载和展示图片。</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>Glide是一款由Bump Technologies开发的图片加载框架，使得我们可以在Android平台上以极度简单的方式加载和展示图片。</p>
 <p>目前，Glide最新的稳定版本是3.7.0，虽然3.8.0已经推出预览版了，但是暂时问题还比较多。因此，我们这个系列的博客都会使用Glide 3.7.0版本来进行讲解，这个版本的Glide相当成熟和稳定。</p>
 <p>要想使用Glide，首先需要将这个库引入到我们的项目当中。新建一个GlideTest项目，然后在app/build.gradle文件当中添加如下依赖：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.github.bumptech.glide:glide:3.7.0'</span></div><div class="line">&#125;<span class="number">123123</span></div></pre></td></tr></table></figure>
@@ -68,7 +68,7 @@
 <p>另外，Glide中需要用到网络功能，因此你还得在AndroidManifest.xml中声明一下网络权限才行：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;</span>11</div></pre></td></tr></table></figure>
 <p>就是这么简单，然后我们就可以自由地使用Glide中的任意功能了。</p>
-<h1 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h1><p>现在我们就来尝试一下如何使用Glide来加载图片吧。比如这是必应上一张首页美图的地址：</p>
+<h2 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h2><p>现在我们就来尝试一下如何使用Glide来加载图片吧。比如这是必应上一张首页美图的地址：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">http:<span class="comment">//cn.bing.com/az/hprichbg/rb/Dongdaemun_ZH-CN10736487148_1920x1080.jpg11</span></div></pre></td></tr></table></figure>
 <p>然后我们想要在程序当中去加载这张图片。</p>
 <p>那么首先打开项目的布局文件，在布局当中加入一个Button和一个ImageView，如下所示：</p>
@@ -87,7 +87,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 加载本地图片</span></div><div class="line">File file = <span class="keyword">new</span> File(getExternalCacheDir() + <span class="string">"/image.jpg"</span>);</div><div class="line">Glide.with(<span class="keyword">this</span>).load(file).into(imageView);</div><div class="line"></div><div class="line"><span class="comment">// 加载应用资源</span></div><div class="line"><span class="keyword">int</span> resource = R.drawable.image;</div><div class="line">Glide.with(<span class="keyword">this</span>).load(resource).into(imageView);</div><div class="line"></div><div class="line"><span class="comment">// 加载二进制流</span></div><div class="line"><span class="keyword">byte</span>[] image = getImageBytes();</div><div class="line">Glide.with(<span class="keyword">this</span>).load(image).into(imageView);</div><div class="line"></div><div class="line"><span class="comment">// 加载Uri对象</span></div><div class="line">Uri imageUri = getImageUri();</div><div class="line">Glide.with(<span class="keyword">this</span>).load(imageUri).into(imageView);</div></pre></td></tr></table></figure>
 <p>最后看一下into()方法，这个方法就很简单了，我们希望让图片显示在哪个ImageView上，把这个ImageView的实例传进去就可以了。当然，into()方法不仅仅是只能接收ImageView类型的参数，还支持很多更丰富的用法，不过那个属于高级技巧，我们会在后面的文章当中学习。</p>
 <p>那么回顾一下Glide最基本的使用方式，其实就是关键的三步走：先with()，再load()，最后into()。熟记这三步，你就已经入门Glide了。</p>
-<h1 id="占位图"><a href="#占位图" class="headerlink" title="占位图"></a>占位图</h1><p>现在我们来学一些Glide的扩展内容。其实刚才所学的三步走就是Glide最核心的东西，而我们后面所要学习的所有东西都是在这个三步走的基础上不断进行扩展而已。</p>
+<h2 id="占位图"><a href="#占位图" class="headerlink" title="占位图"></a>占位图</h2><p>现在我们来学一些Glide的扩展内容。其实刚才所学的三步走就是Glide最核心的东西，而我们后面所要学习的所有东西都是在这个三步走的基础上不断进行扩展而已。</p>
 <p>观察刚才加载网络图片的效果，你会发现，点击了Load Image按钮之后，要稍微等一会图片才会显示出来。这其实很容易理解，因为从网络上下载图片本来就是需要时间的。那么我们有没有办法再优化一下用户体验呢？当然可以，Glide提供了各种各样非常丰富的API支持，其中就包括了占位图功能。</p>
 <p>顾名思义，占位图就是指在图片的加载过程中，我们先显示一张临时的图片，等图片加载出来了再替换成要加载的图片。</p>
 <p>下面我们就来学习一下Glide占位图功能的使用方法，首先我事先准备好了一张loading.jpg图片，用来作为占位图显示。然后修改Glide加载部分的代码，如下所示：</p>
@@ -108,7 +108,7 @@
 <p>现在你可以将图片的url地址修改成一个不存在的图片地址，或者干脆直接将手机的网络给关了，然后重新运行程序，效果如下图所示：</p>
 <p><img src="http://img.blog.csdn.net/20170312223632017?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZ3VvbGluX2Jsb2c=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p>
 <p>这样我们就把Glide提供的占位图功能都掌握了。</p>
-<h1 id="指定图片格式"><a href="#指定图片格式" class="headerlink" title="指定图片格式"></a>指定图片格式</h1><p>我们还需要再了解一下Glide另外一个强大的功能，那就是Glide是支持加载GIF图片的。这一点确实非常牛逼，因为相比之下Jake Warton曾经明确表示过，Picasso是不会支持加载GIF图片的。</p>
+<h2 id="指定图片格式"><a href="#指定图片格式" class="headerlink" title="指定图片格式"></a>指定图片格式</h2><p>我们还需要再了解一下Glide另外一个强大的功能，那就是Glide是支持加载GIF图片的。这一点确实非常牛逼，因为相比之下Jake Warton曾经明确表示过，Picasso是不会支持加载GIF图片的。</p>
 <p>而使用Glide加载GIF图并不需要编写什么额外的代码，Glide内部会自动判断图片格式。比如这是一张GIF图片的URL地址：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">http:<span class="comment">//p1.pstatp.com/large/166200019850062839d311</span></div></pre></td></tr></table></figure>
 <p>我们只需要将刚才那段加载图片代码中的URL地址替换成上面的地址就可以了，现在重新运行一下代码，效果如下图所示：</p>
@@ -127,7 +127,7 @@
 <p>那么既然指定了只允许加载动态图片，如果我们传入了一张静态图片的URL地址又会怎么样呢？试一下就知道了，将图片的URL地址改成刚才的必应美图，然后重新运行代码，效果如下图所示。</p>
 <p><img src="http://img.blog.csdn.net/20170313214955866?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZ3VvbGluX2Jsb2c=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p>
 <p>没错，如果指定了只能加载动态图片，而传入的图片却是一张静图的话，那么结果自然就只有加载失败喽。</p>
-<h1 id="指定图片大小"><a href="#指定图片大小" class="headerlink" title="指定图片大小"></a>指定图片大小</h1><p>实际上，使用Glide在绝大多数情况下我们都是不需要指定图片大小的。</p>
+<h2 id="指定图片大小"><a href="#指定图片大小" class="headerlink" title="指定图片大小"></a>指定图片大小</h2><p>实际上，使用Glide在绝大多数情况下我们都是不需要指定图片大小的。</p>
 <p>在学习本节内容之前，你可能还需要先了解一个概念，就是我们平时在加载图片的时候很容易会造成内存浪费。什么叫内存浪费呢？比如说一张图片的尺寸是1000<em>1000像素，但是我们界面上的ImageView可能只有200</em>200像素，这个时候如果你不对图片进行任何压缩就直接读取到内存中，这就属于内存浪费了，因为程序中根本就用不到这么高像素的图片。</p>
 <p>关于图片压缩这方面，我之前也翻译过Android官方的一篇文章，感兴趣的朋友可以去阅读一下 <a href="http://blog.csdn.net/guolin_blog/article/details/9316683" target="_blank" rel="external">Android高效加载大图、多图解决方案，有效避免程序OOM</a> 。</p>
 <p>而使用Glide，我们就完全不用担心图片内存浪费，甚至是内存溢出的问题。因为Glide从来都不会直接将图片的完整尺寸全部加载到内存中，而是用多少加载多少。Glide会自动判断ImageView的大小，然后只将这么大的图片像素加载到内存当中，帮助我们节省内存开支。</p>
