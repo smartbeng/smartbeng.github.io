@@ -3,7 +3,7 @@
 
 ## 关于我
 
-Android 开发者 + 舞台放光者 + 行动主义者 , 心愿是未来希望自己可以影响很多人 , 当然是正能量的咯！
+Android 开发者 + 舞台放光者 + 行动主义者 + 帅比 , 心愿是未来希望自己可以影响很多人 , 当然是正能量的咯！
 
 ## 联系我
 
@@ -11,8 +11,8 @@ Android 开发者 + 舞台放光者 + 行动主义者 , 心愿是未来希望自
 
 - 微博: smartbeng
 
-- 微信公众号「smartbeng」,会爱上的公众号。
+- 微信公众号「smartbeng」,吐血版珍藏持续更新，一个会爱上的公众号。
 
-  ![webwxgetmsgimg](C:\Users\MaiBenBen\Desktop\新建文件夹\pupu961215.github.io-master\小图\webwxgetmsgimg.jpg)
+  ![webwxgetmsgimg.jpg](http://upload-images.jianshu.io/upload_images/5276837-57fef8e088c293ff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
