@@ -7,7 +7,12 @@ Android 开发者 + 舞台放光者 + 行动主义者 , 心愿是未来希望自
 
 ## 联系我
 
-- JianShu: [smartbeng](http://www.jianshu.com/u/7ca90649bbfd)
-- Weibo: [Silence-e](http://weibo.com/login.php)
+- 简书: [smartbeng](http://www.jianshu.com/u/7ca90649bbfd)
+
+- 微博: smartbeng
+
+- 微信公众号「smartbeng」,会爱上的公众号。
+
+  ![webwxgetmsgimg](C:\Users\MaiBenBen\Desktop\新建文件夹\pupu961215.github.io-master\小图\webwxgetmsgimg.jpg)
 
 
