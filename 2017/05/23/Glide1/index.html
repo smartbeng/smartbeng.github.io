@@ -143,6 +143,8 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Glide.with(<span class="keyword">this</span>)</div><div class="line">     .load(url)</div><div class="line">     .placeholder(R.drawable.loading)</div><div class="line">     .error(R.drawable.error)</div><div class="line">     .diskCacheStrategy(DiskCacheStrategy.NONE)</div><div class="line">     .override(<span class="number">100</span>, <span class="number">100</span>)</div><div class="line">     .into(imageView);<span class="number">12345671234567</span></div></pre></td></tr></table></figure>
 <p>仍然非常简单，这里使用override()方法指定了一个图片的尺寸，也就是说，Glide现在只会将图片加载成100*100像素的尺寸，而不会管你的ImageView的大小是多少了。</p>
 <p>好了，今天是我们这个Glide系列的第一篇文章，写了这么多内容已经算是挺不错的了。现在你已经了解了Glide的基本用法，当然也是一些最常用的用法。下一篇文章当中，我们会尝试去分析Glide的源码，研究一下在这些基本用法的背后，Glide到底执行了什么神奇的操作，能够使得我们加载图片变得这么简单？感兴趣的朋友请继续阅读 <a href="http://blog.csdn.net/guolin_blog/article/details/53939176" target="_blank" rel="external">Android图片加载框架最全解析（二），从源码的角度理解Glide的执行流程</a> 。</p>
+<p>微信公众号「smartbeng」,吐血版珍藏持续更新，一个会爱上的公众号。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5276837-57fef8e088c293ff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="webwxgetmsgimg.jpg"></p>
 
           <br>
 <p>smartbeng</p>
