@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/03/26/blogFinish/</loc>
+    
+    <lastmod>2017-06-19T06:27:49.263Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/05/26/Google/</loc>
     
     <lastmod>2017-05-28T16:14:54.633Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2017/04/15/TabLayout%20+%20ViewPager/</loc>
     
     <lastmod>2017-05-26T03:34:54.592Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/04/02/Success/</loc>
-    
-    <lastmod>2017-05-26T03:34:40.719Z</lastmod>
     
   </url>
   
@@ -89,13 +89,6 @@
     <loc>http://yoursite.com/2017/03/31/build/</loc>
     
     <lastmod>2017-05-26T03:32:39.870Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/03/26/blogFinish/</loc>
-    
-    <lastmod>2017-05-26T03:32:22.434Z</lastmod>
     
   </url>
   

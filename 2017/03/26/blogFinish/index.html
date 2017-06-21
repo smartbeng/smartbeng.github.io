@@ -63,7 +63,7 @@
 <p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">官网下载地址 各种系统以及版本都可以找到</a></p>
 <h4 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h4><p><a href="http://git-scm.com/download/" target="_blank" rel="external">Git 下载地址</a></p>
 <p>安装 Git 后打开 git bash 界面 , 也就是 git 命令窗口 , 以下的所有命令操作全部在此窗口进行 , 别一会儿 cmd 一会儿 git。</p>
-<h4 id="注册GitHub"><a href="#注册GitHub" class="headerlink" title="注册GitHub"></a>注册GitHub</h4><p>关于账号的注册简直不宜多说 , 只要你注册过微信 qq </p>
+<h4 id="注册GitHub"><a href="#注册GitHub" class="headerlink" title="注册GitHub"></a>注册GitHub</h4><p>关于账号的注册简直不宜多说 , 只要你注册过微信 qq</p>
 <p>自行登录GitHub官方网站注册账号     <a href="https://github.com" target="_blank" rel="external">地址</a></p>
 <h4 id="检查-SSH-key-设置"><a href="#检查-SSH-key-设置" class="headerlink" title="检查 SSH key 设置"></a>检查 SSH key 设置</h4><p>首先我们需要检查你本机的ssh key 秘钥</p>
 <p><code>$ cd ~/. ssh</code>     </p>
@@ -93,7 +93,7 @@
 <p>Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理 , 输入下面的代码进行个人信息的设置 , 把名称和邮箱替换成你自己的 , 名字必须是你的真名 , 而不是GitHub的昵称。</p>
 <figure class="highlight"><table><tr><td class="code"><pre><div class="line">$ git config --global user.name "userName"//你的用户名</div><div class="line">$ git config --global user.email  "userName@163.com"//填写自己的邮箱   </div><div class="line">-- 查看用户名密码去掉后面的双引内容</div></pre></td></tr></table></figure>
 <h4 id="SSH-配置成功"><a href="#SSH-配置成功" class="headerlink" title="SSH 配置成功"></a>SSH 配置成功</h4><p>本机已成功连接到github</p>
-<p>如有问题 , 请重新设置 , 常见错误参考 </p>
+<p>如有问题 , 请重新设置 , 常见错误参考</p>
 <p><a href="http://help.github.com/articles/generating-ssh-keys" target="_blank" rel="external">http://help.github.com/articles/generating-ssh-keys</a></p>
 <p><a href="http://help.github.com/articles/error-permission-denied-publickey" target="_blank" rel="external">http://help.github.com/articles/error-permission-denied-publickey</a></p>
 <p>​</p>
@@ -136,7 +136,7 @@
 <p>修改Hexo目录下的config.yml配置文件中的theme属性，将其设置为jacman</p>
 </li>
 <li><p>启用主题</p>
-<p>从Hexo的根目录进入你复制的主题目录 </p>
+<p>从Hexo的根目录进入你复制的主题目录</p>
 <figure class="highlight ruby"><table><tr><td class="code"><pre><div class="line">$ cd themes/jacman</div><div class="line">$ git pull</div><div class="line">$ hexo g   --生成</div><div class="line">$ hexo s   --启动本地预览</div></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -204,7 +204,7 @@
 <p><code>$ hexo g</code></p>
 </li>
 <li><p><strong>最后一步 , 发布成功</strong>（发布之后访问会有延迟 , 别急）</p>
-<p>双击我们刚在Hexo 目录下编辑的 deploy.sh 脚本文件 , 然后默默的输入 GitHub 用户名和密码 , 完了之后就去访问你的个人博客网页吧！就是你的 GitHub 仓库名 <a href="https://username.github.io" target="_blank" rel="external">https://username.github.io</a> (username 是你的用户名呀哥 , 别搞错) </p>
+<p>双击我们刚在Hexo 目录下编辑的 deploy.sh 脚本文件 , 然后默默的输入 GitHub 用户名和密码 , 完了之后就去访问你的个人博客网页吧！就是你的 GitHub 仓库名 <a href="https://username.github.io" target="_blank" rel="external">https://username.github.io</a> (username 是你的用户名呀哥 , 别搞错)</p>
 </li>
 <li><p>也就是说：以后你发布博客只需要两步 , Hexo 根目录下 运行 hexo g , 之后点击 depploy.sh 脚本！</p>
 </li>
@@ -218,7 +218,7 @@
 <p>然后直接双击 Hexo 下的 deploy.sh 脚本吧！等着输入用户名密码就OK</p>
 </li>
 <li><p><strong>请注意这里有个大坑</strong></p>
-<p>_confing.yml 下 timezone 配置不能错</p>
+<p><strong>_confing.yml 下 timezone 配置不能错</strong></p>
 <p><code>timezone: zh-CN #能配置成 +08:00 类似的</code></p>
 <p>上面那个也有不对的，如果设置cheng +08:00 后 momentjs解析会报异常</p>
 <p>需要将timezone配置成 时区名称</p>
